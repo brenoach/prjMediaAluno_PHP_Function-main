@@ -1,0 +1,23 @@
+<!--formulário para pegar valor de moedas e escolher a moeda para a conversão -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="../API_country/style.css">
+    <title>Conversão de Moedas</title>
+</head>
+<body>
+    <form action="conversao_moeda.php" method="get">
+        <label for="valor" name ="valor" id = "valor" > Digite valor para conversão</label>
+        <input type="number" step="0.01" name="valor" id="valor" > Valor<br><br>
+        <input type="radio" name="moeda" value="dolar" id="dolar"> Dólar
+        <input type="radio" name="euro" value="dolar" id="euro"> Euro
+        <input type="radio" name="moeda" value="iene" id="iene"> Iene <br><br>
+        <input type="submit" value="Converter">
+
+
+    </form>
+</body>
+</html>

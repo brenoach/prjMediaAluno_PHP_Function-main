@@ -39,6 +39,19 @@
                 }
             } 
             }
+            $taxa_cambio = ''; // Inicializa a variável com 0
+
+            if ($moeda_escolhida == "dolar") {
+                $taxa_cambio = 5.25; // Taxa fixa de Dólar (Exemplo)
+            } elseif ($moeda_escolhida == "yuan") {
+            $taxa_cambio = 0.034; // Taxa fixa de Iene (Exemplo)
+            } elseif ($moeda_escolhida == "eur") {
+            $taxa_cambio = 6.26; // Taxa fixa de Euro (Exemplo)
+            }
+// Se nenhuma moeda for selecionada, $taxa_cambio continua 0
+            echo"<br> A taxa de cambio: ". $taxa_cambio ."";
+            $valor_convertido = $real / $taxa_cambio;
+            echo "<br>Seus". $real. " em reais correspondem a". number_format($valor_convertido,2,",",".") ."em ". $moeda_escolhida ."";
             
             function test_input($data) {
                 $data = trim($data);   //retira espaços em branco
@@ -47,26 +60,28 @@
                 return $data;
             }
             
-            // function conversao ($real, $valor_convertido){
-            // $valor_convertido = $real/$indice_conversao
-            // return $valor_convertido }
             
             function escolher_moeda ($valor_brl) {
                 $dolar = 5.25;
                 $yuan = 1.33;
                 $eur = 6.26;
                 if ($valor_brl == "dolar"){
-                return $dolar;
+                    return $dolar;
                 }
                 elseif ($valor_brl == "eur"){
-                return $eur;
+                    return $eur;
                 } // aqui eu defino que se for euro, retorna o valor do euro como cotação
                 elseif ($valor_brl == "yuan"){
-                return $yuan; // aqui eu defino que se for yaun, retorna o valor do yuan como cotação;    
+                    return $yuan; // aqui eu defino que se for yaun, retorna o valor do yuan como cotação;    
                 }
                 return 0;     
-                  
+                
             }
+            
+            // function conversao ($real, $valor_convertido){
+            // $valor_convertido = $real/$indice_conversao
+            // return $valor_convertido }
+            
             
             
 

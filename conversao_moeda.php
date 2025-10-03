@@ -23,6 +23,20 @@
                 } 
                 else {
                 $real = test_input($_POST["real"]);
+
+                 // 2. Recebe a MOEDA ESCOLHIDA (do radio button name="valor_brl")
+                // Se a chave "valor_brl" existir, guardamos o seu valor (dolar, ien ou eur)
+                if (isset($_POST["valor_brl"])) {
+                    $moeda_escolhida = test_input($_POST["valor_brl"]);
+
+                    // --- LINHA DE TESTE TEMPORÁRIA ---
+                    echo "Moeda escolhida para teste: " . $moeda_escolhida;
+                    // --- FIM DA LINHA DE TESTE ---
+
+                } else {
+                    // Caso o usuário não selecione nenhuma, definimos um valor padrão ou erro
+                    $moeda_escolhida = ""; 
+                }
             } 
             }
             
@@ -36,10 +50,26 @@
             // function conversao ($real, $valor_convertido){
             // $valor_convertido = $real/$indice_conversao
             // return $valor_convertido }
-
-            //function receber_indice_conversao ($dolar,$ien,$eur) {
-            // if }
             
+            function escolher_moeda ($valor_brl) {
+                $dolar = 5.25;
+                $yuan = 1.33;
+                $eur = 6.26;
+                if ($valor_brl == "dolar"){
+                return $dolar;
+                }
+                elseif ($valor_brl == "eur"){
+                return $eur;
+                } // aqui eu defino que se for euro, retorna o valor do euro como cotação
+                elseif ($valor_brl == "yuan"){
+                return $yuan; // aqui eu defino que se for yaun, retorna o valor do yuan como cotação;    
+                }
+                return 0;     
+                  
+            }
+            
+            
+
             ?>
         <!-- <form action="$_SERVER" method="PHP_SELF"> jeito errado-->
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -49,11 +79,12 @@
                 <span class="erro"><?php echo $erro_vazio; ?></span>
                 <br><br>
                 Câmbio:<br><br>
-                Dolar: <input type="radio" name="real" value="dolar">
-                Ien: <input type="radio" name="real" value="ien">
-                Euro: <input type="radio" name="real" value="ien">
+                Dolar: <input type="radio" name="valor_brl" value="dolar">
+                Euro: <input type="radio" name="valor_brl" value="eur">
+                Yuan: <input type="radio" name="valor_brl" value="yuan">
                 <input type="submit" value="Calcular">
         </form>
+
     </div>
         <div class="cotacao_dolar">
 
